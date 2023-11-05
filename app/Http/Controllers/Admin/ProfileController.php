@@ -37,7 +37,8 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-
+        // Set a success toast, with a title
+        toastr()->success('Details has been updated successfully!', 'Congrats');
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
