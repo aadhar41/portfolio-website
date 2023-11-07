@@ -19,3 +19,10 @@ export default {
 
     plugins: [forms],
 };
+
+module.exports = {
+    corePlugins: {
+        preflight: false,
+    }
+}
+  
