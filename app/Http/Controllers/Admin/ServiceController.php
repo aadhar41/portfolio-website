@@ -63,7 +63,8 @@ class ServiceController extends Controller
     public function update(UpdateServiceRequest $request, $id)
     {
         $data = Service::findOrFail($id);
-        $data->title = $request->title;
+        $data->name = $request->name;
+        $data->description = $request->description;
         $data->save();
 
         toastr()->success('Details updated successfully.','Success!');
