@@ -10,8 +10,12 @@
 
             if (scrolling > navoff) {
                 $('.main_menu').addClass('menu_fix');
+                $('.main-logo-one').show();
+                $('.main-logo-two').hide();
             } else {
                 $('.main_menu').removeClass('menu_fix');
+                $('.main-logo-one').hide();
+                $('.main-logo-two').show();
             }
         });
     }

@@ -4,7 +4,7 @@
             <div class="col-md-12 col-lg-3 widget">
                 <div class="text-box">
                     <figure class="footer-logo">
-                        <img src="{{asset('frontend/images/theme/logo_transparent_2.png')}}" alt="Logo">
+                        <img src="{{asset('frontend/images/theme/logo_transparent_two.png')}}" alt="Logo">
                     </figure>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, libero. </p>
                     <ul class="d-flex flex-wrap">
@@ -18,10 +18,10 @@
             <div class="col-md-4 col-lg-2 offset-lg-1 widget">
                 <h3 class="widget-title">Useful Link</h3>
                 <ul class="nav-menu">
-                    <li><a href="javascript:void(0);">Home</a></li>
+                    <li><a href="{{route('frontend.home')}}">Home</a></li>
                     <li><a href="javascript:void(0);">About</a></li>
-                    <li><a href="javascript:void(0);">Portfolio</a></li>
-                    <li><a href="javascript:void(0);">Blog</a></li>
+                    <li><a href="{{route('frontend.portfolio')}}">Portfolio</a></li>
+                    <li><a href="{{route('frontend.blog')}}">Blog</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-lg-3 widget">

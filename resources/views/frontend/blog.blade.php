@@ -180,4 +180,5 @@
     </div>
 </section>
 <!-- Quote-Area-End -->
+
 @endsection
