@@ -24,21 +24,21 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{old('title')}}" />
+                                <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{old('title', $hero->title)}}" />
                             </div>
                             <div class="form-group">
                                 <label>Sub Title</label>
-                                <textarea class="form-control" rows="3" id="sub_title" name="sub_title" placeholder="Sub Title">{{old('sub_title')}}</textarea>
+                                <textarea class="form-control" rows="3" id="sub_title" name="sub_title" placeholder="Sub Title">{{old('sub_title', $hero->sub_title)}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="btn_txt">Button Text</label>
-                                <input class="form-control" id="btn_txt" name="btn_txt" value="{{old('btn_txt')}}" type="text" placeholder="Button Text">
+                                <input class="form-control" id="btn_txt" name="btn_txt" value="{{old('btn_txt', $hero->btn_txt)}}" type="text" placeholder="Button Text">
                             </div>
                             <div class="form-group">
                                 <label for="btn_url">Button URL</label>
-                                <input class="form-control" id="btn_url" name="btn_url" value="{{old('btn_url')}}" type="text" placeholder="Button URL">
+                                <input class="form-control" id="btn_url" name="btn_url" value="{{old('btn_url', $hero->btn_url)}}" type="text" placeholder="Button URL">
                             </div>
-
+                            
                             <div class="form-group">
                                 <label for="image">Background Image</label>
                                 <div class="input-group">
@@ -48,6 +48,11 @@
                                     </div>
                                 </div>
                             </div>
+                            @if ($hero->image)
+                            <div class="form-group">
+                                <img src="{{asset($hero->image)}}" class="img-fluid img-thumbnail ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" height="250" width="430" alt="Image">
+                            </div>
+                            @endif
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">

@@ -26,7 +26,7 @@ class UpdateHeroRequest extends FormRequest
             'sub_title' => 'required|max:500',
             'btn_txt' => 'required|max:50',
             'btn_url' => 'required|max:150',
-            'image' => 'required|image|max:3000',
+            'image' => 'image|max:3000',
         ];
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Header-Area-Start -->
-@include('frontend.sections.header')
+@include('frontend.sections.header', ['hero' => $hero])
 <!-- Header-Area-End -->
 
 <!-- Service-Area-Start -->

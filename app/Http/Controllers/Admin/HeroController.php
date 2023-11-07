@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Hero;
 use App\Http\Requests\StoreHeroRequest;
 use App\Http\Requests\UpdateHeroRequest;
+use Illuminate\Support\Facades\File;
 
 class HeroController extends Controller
 {
@@ -22,7 +23,8 @@ class HeroController extends Controller
      */
     public function create()
     {
-        return view('admin.hero.create');
+        $hero = Hero::first();
+        return view('admin.hero.create', compact('hero'));
     }
 
     /**
@@ -57,12 +59,15 @@ class HeroController extends Controller
         // Retrieve the validated input data...
         $validated = $request->validated();
 
+        $data = Hero::first();
         if ($request->has('image')) {
+            if ($data && File::exists(public_path($data->image))) {
+                File::delete(public_path($data->image));
+            }
             $image = $request->file('image');
             $imageName = rand() . '_' . $image->getClientOriginalName();
             $image->move(public_path('/uploads'), $imageName);
             $imagePath = "/uploads/" . $imageName;
-
         }
 
         Hero::updateOrCreate([
@@ -72,12 +77,11 @@ class HeroController extends Controller
             'sub_title' => isset($request->sub_title) ? $request->sub_title : "",
             'btn_txt' => isset($request->btn_txt) ? $request->btn_txt : "",
             'btn_url' => isset($request->btn_url) ? $request->btn_url : "",
-            'image' => isset($imagePath) ? $imagePath : "",
+            'image' => isset($imagePath) ? $imagePath : $data->image,
         ]);
 
-        // Store the blog post...
         toastr()->success('Details updated successfully.','Success!');
-        return redirect()->back();
+        return redirect()->route('admin.typer-title.index');
     }
 
     /**

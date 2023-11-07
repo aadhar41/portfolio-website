@@ -8,6 +8,8 @@
     <title>{{ config('app.name', 'Portfolio') }}</title>
     <link rel="icon" type="image/x-icon" href="{{asset('dist/img/favicon.png')}}">
 
+    <!-- jQuery -->
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -29,8 +31,45 @@
     <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
-    {{-- <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script>
+        try {
+            $('.button').click(function (e) { 
+                e.preventDefault();
+                alert('button');
+            });
+            $(document).ready(function (e) {
+            });
+        } catch (error) {
+            console.log(error);
+        }
+        // // $('.button').click(function (e) { 
+        // //     e.preventDefault();
+        // //     alert("delete-item");
+        // //     return false;
+        // //     Swal.fire({
+        // //         title: "Are you sure?",
+        // //         text: "You won't be able to revert this!",
+        // //         icon: "warning",
+        // //         showCancelButton: true,
+        // //         confirmButtonColor: "#3085d6",
+        // //         cancelButtonColor: "#d33",
+        // //         confirmButtonText: "Yes, delete it!"
+        // //     }).then((result) => {
+        // //         if (result.isConfirmed) {
+        // //             Swal.fire({
+        // //             title: "Deleted!",
+        // //             text: "Your file has been deleted.",
+        // //             icon: "success"
+        // //             });
+        // //         }
+        // //     });
+            
+        // // });
+    </script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -86,8 +125,8 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- jQuery -->
-    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+    
+    
     <!-- jQuery UI 1.11.4 -->
     <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -122,6 +161,8 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
     <script src="{{asset('dist/js/demo.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
@@ -136,6 +177,12 @@
         </script>
         @endforeach
     @endif
+
+    
+
+    
+
+    @stack('scripts')
 </body>
 
 </html>
