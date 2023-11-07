@@ -23,8 +23,12 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{old('title')}}" />
+                                <label for="name">Name</label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name')}}" />
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description">{{old('description')}}</textarea>
                             </div>
                         </div>
                         <!-- /.card-body -->

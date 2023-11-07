@@ -31,7 +31,13 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        $service = new Service();
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->save();
+
+        toastr()->success('Service created successfully.','Success!');
+        return redirect()->route('admin.service.index');
     }
 
     /**
@@ -45,24 +51,34 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        $data = Service::findOrFail($id);
+        return view("admin.service.edit", compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateServiceRequest $request, Service $service)
+    public function update(UpdateServiceRequest $request, $id)
     {
-        //
+        $data = Service::findOrFail($id);
+        $data->title = $request->title;
+        $data->save();
+
+        toastr()->success('Details updated successfully.','Success!');
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $data = Service::findOrFail($id);
+        $data->delete();
+
+        toastr()->error('Details deleted successfully.','Success!');
+        return redirect()->back();
     }
 }

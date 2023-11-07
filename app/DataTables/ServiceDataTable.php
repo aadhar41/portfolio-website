@@ -22,7 +22,16 @@ class ServiceDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'service.action')
+            ->addColumn('action', function($query) {
+                return '<a class="badge badge-primary" href="'.route("admin.service.edit", $query->id).'" role="button">Edit</a>
+                <form action="'.route("admin.service.destroy", $query->id ).'" method="POST">
+                    '.csrf_field().'
+                    '.method_field("DELETE").'
+                    <button type="submit" class="btn btn-danger"
+                        onclick="return confirm(\'Are You Sure Want to Delete?\')"
+                        style="padding: 1px 4px !important; font-size: small;">Delete</a>
+                    </form>';
+            })
             ->setRowId('id');
     }
 
@@ -44,7 +53,7 @@ class ServiceDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
