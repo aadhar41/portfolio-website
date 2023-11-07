@@ -16,3 +16,21 @@
         </div>
     </div>
 </header>
+<?php 
+// print_r($typerTitles);
+$titles = []; 
+foreach ($typerTitles as $title) {
+    $titles[] = $title;
+}
+$titles = json_encode($titles);
+?>
+@push('scripts')
+    <script>
+        
+        var textOne = "I'm developer.",
+            textTwo = "Let's work together.",
+            textThree = "I can create awesome stuff.";
+
+        $('.header-area .typer-title').typer({!! $titles !!});
+    </script>
+@endpush

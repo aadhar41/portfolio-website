@@ -4,5 +4,6 @@
         <script src="{{asset('frontend/js/jquery-plugin-collection.js')}}"></script>
         <script src="{{asset('frontend/js/vendor/modernizr.js')}}"></script>
         <script src="{{asset('frontend/js/main.js')}}"></script>
+        @stack('scripts')
     </body>
 </html>
