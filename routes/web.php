@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
@@ -53,6 +54,12 @@ require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('hero', HeroController::class);
+    // Typer Title Route
     Route::resource('typer-title', TyperTitleController::class);
+    // Service Route
     Route::resource('service', ServiceController::class);
+    // About Route
+    Route::resource('about', AboutController::class);
+    // Resume Download
+    Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
 });

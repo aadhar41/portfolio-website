@@ -20,56 +20,23 @@
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}"> --}}
     <!-- JQVMap -->
-    <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}"> --}}
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}"> --}}
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
-
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="{{asset('plugins/dropzone/min/dropzone.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script>
-        try {
-            $('.button').click(function (e) { 
-                e.preventDefault();
-                alert('button');
-            });
-            $(document).ready(function (e) {
-            });
-        } catch (error) {
-            console.log(error);
-        }
-        // // $('.button').click(function (e) { 
-        // //     e.preventDefault();
-        // //     alert("delete-item");
-        // //     return false;
-        // //     Swal.fire({
-        // //         title: "Are you sure?",
-        // //         text: "You won't be able to revert this!",
-        // //         icon: "warning",
-        // //         showCancelButton: true,
-        // //         confirmButtonColor: "#3085d6",
-        // //         cancelButtonColor: "#d33",
-        // //         confirmButtonText: "Yes, delete it!"
-        // //     }).then((result) => {
-        // //         if (result.isConfirmed) {
-        // //             Swal.fire({
-        // //             title: "Deleted!",
-        // //             text: "Your file has been deleted.",
-        // //             icon: "success"
-        // //             });
-        // //         }
-        // //     });
-            
-        // // });
-    </script>
+  
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -125,7 +92,7 @@
     </div>
     <!-- ./wrapper -->
 
-    
+
     
     <!-- jQuery UI 1.11.4 -->
     <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -133,21 +100,22 @@
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
+
     <!-- Bootstrap 4 -->
     <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- ChartJS -->
-    <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
+    {{-- <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script> --}}
     <!-- Sparkline -->
-    <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
+    {{-- <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script> --}}
     <!-- JQVMap -->
-    <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-    <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+    {{-- <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script> --}}
     <!-- jQuery Knob Chart -->
-    <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+    {{-- <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script> --}}
     <!-- daterangepicker -->
     <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
-    <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
+    {{-- <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script> --}}
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
     <!-- Summernote -->
@@ -156,12 +124,15 @@
     <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 
     <script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+    <!-- dropzonejs -->
+    {{-- <script src="{{asset('plugins/dropzone/min/dropzone.min.js')}}"></script> --}}
     <!-- AdminLTE App -->
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
     <script src="{{asset('dist/js/demo.js')}}"></script>
-
+    
+ 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -177,12 +148,17 @@
         </script>
         @endforeach
     @endif
-
+    <script>
+        $('.summernote').summernote({
+            placeholder: '',
+            tabsize: 2,
+            height: 100
+        });
+    </script>
     
-
-    
-
     @stack('scripts')
+
+
 </body>
 
 </html>
