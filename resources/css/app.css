@@ -9,7 +9,8 @@
 @tailwind utilities;
 
 .spinner-border {
-    display: inline-block;
+    /* display: inline-block; */
+    display: none;
     width: 2rem;
     height: 2rem;
     vertical-align: text-bottom;

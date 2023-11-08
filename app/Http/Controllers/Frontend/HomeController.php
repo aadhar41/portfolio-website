@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Hero;
 use App\Models\Service;
 use App\Models\TyperTitle;
@@ -16,6 +17,8 @@ class HomeController extends Controller
         $hero = Hero::first();
         $typerTitles = TyperTitle::pluck('title');
         $services = Service::pluck('description','name');
-        return view('frontend.home', compact('hero', 'typerTitles', 'services'));
+        $about = About::first(['title','description','image','resume']);
+        // dd($about);
+        return view('frontend.home', compact('hero', 'typerTitles', 'services', 'about'));
     }
 }
