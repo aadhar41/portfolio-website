@@ -10,9 +10,9 @@
                     @csrf
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Create Service</h3>
+                            <h3 class="card-title">{{__('Create Service')}}</h3>
                             <div class="card-tools">
-                                <a href="{{route('admin.service.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> Lists</a>
+                                <a href="{{route('admin.service.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> {{__('Lists')}}</a>
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>
                                 </button>
@@ -24,17 +24,17 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name')}}" />
+                                <input class="form-control" id="name" name="name" type="text" placeholder="{{__('Name')}}" value="{{old('name')}}" />
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description">{{old('description')}}</textarea>
+                                <textarea class="form-control" rows="3" id="description" name="description" placeholder="{{__('Description')}}">{{old('description')}}</textarea>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">
-                                Create
+                                {{__('Create')}}
                             </button>
                         </div>
                     </div>

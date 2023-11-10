@@ -5,57 +5,31 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="section-title">
-                            <h3 class="title">Skills</h3>
+                            <h3 class="title">{!! $skillSection->title !!}</h3>
                             <div class="desc">
-                                <p>Earum quos animi numquam excepturi eveniet explicabo repellendus rem esse.
-                                    Quae quasi
-                                    odio enim.</p>
+                                <p>{!! $skillSection->sub_title !!}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row skills">
+                    @foreach ($skills as $skill)
+                    <?php 
+                        $num = rand(0, 5);
+                        $color = array('#558bff', '#fecc90', '#ff885e', '#282828', '#190844', '#9dd3ff');
+                    ?>
                     <div class="col-sm-6">
                         <div class="bar_group wow fadeInUp" data-wow-delay="0.3s" data-max="100">
-                            <div class="title">Web Design</div>
-                            <div class="bar_group__bar thick elastic" data-value="95" data-color="#558bff" data-tooltip="true" data-show-values="false" data-unit="%"></div>
+                            <div class="title">{!! $skill->name !!}</div>
+                            <div class="bar_group__bar thick elastic" data-value="{!! $skill->percent !!}" data-color="{{getColor($loop->index)}}" data-tooltip="true" data-show-values="false" data-unit="%"></div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="bar_group wow fadeInUp" data-wow-delay="0.5s" data-max="100">
-                            <div class="title">Graphic Design</div>
-                            <div class="bar_group__bar thick elastic" data-value="85" data-color="#fecc90" data-tooltip="true" data-show-values="false" data-unit="%"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="bar_group wow fadeInUp" data-wow-delay="0.3s" data-max="100">
-                            <div class="title">Web Developement</div>
-                            <div class="bar_group__bar thick elastic" data-value="70" data-color="#ff885e" data-tooltip="true" data-show-values="false" data-unit="%"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="bar_group wow fadeInUp" data-wow-delay="0.5s" data-max="100">
-                            <div class="title">Application Development</div>
-                            <div class="bar_group__bar thick elastic" data-value="90" data-color="#282828" data-tooltip="true" data-show-values="false" data-unit="%"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="bar_group wow fadeInUp" data-wow-delay="0.3s" data-max="100">
-                            <div class="title">Analytical Abilities</div>
-                            <div class="bar_group__bar thick elastic" data-value="80" data-tooltip="true" data-color="#190844" data-show-values="false" data-unit="%"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="bar_group wow fadeInUp" data-wow-delay="0.5s" data-max="100">
-                            <div class="title">Problem Solbing</div>
-                            <div class="bar_group__bar thick elastic" data-value="65" data-tooltip="true" data-color="#9dd3ff" data-show-values="false" data-unit="%"></div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-6 d-none d-lg-block">
                 <figure class="single-image text-right wow fadeInRight">
-                    <img src="{{asset('frontend/images/skill.jpg')}}" alt="">
+                    <img src="{{asset($skillSection->image)}}" alt="{{$skillSection->title}}">
                 </figure>
             </div>
         </div>

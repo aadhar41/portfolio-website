@@ -28,3 +28,12 @@ function deleteFileIfExists($filePath) {
         throw $th;
     }
 }
+
+function getColor($index) {
+    try {
+        $colors = ['#558bff', '#fecc90', '#ff885e', '#282828', '#190844', '#9dd3ff'];
+        return $colors[$index % count($colors)];
+    } catch (\Exception $th) {
+        throw $th;
+    }
+}
