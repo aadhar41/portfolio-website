@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hero;
-use App\Http\Requests\StoreHeroRequest;
-use App\Http\Requests\UpdateHeroRequest;
+use App\Models\SkillSectionSetting;
+use App\Http\Requests\StoreSkillSectionSettingRequest;
+use App\Http\Requests\UpdateSkillSectionSettingRequest;
 use Illuminate\Support\Facades\File;
 
-class HeroController extends Controller
+class SkillSectionSettingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.hero.index');
+        //
     }
 
     /**
@@ -23,14 +23,14 @@ class HeroController extends Controller
      */
     public function create()
     {
-        $hero = Hero::first();
-        return view('admin.hero.create', compact('hero'));
+        $data = SkillSectionSetting::first();
+        return view('admin.skill-setting.create', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreHeroRequest $request)
+    public function store(StoreSkillSectionSettingRequest $request)
     {
         //
     }
@@ -38,7 +38,7 @@ class HeroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Hero $hero)
+    public function show(SkillSectionSetting $skillSectionSetting)
     {
         //
     }
@@ -46,7 +46,7 @@ class HeroController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Hero $hero)
+    public function edit(SkillSectionSetting $skillSectionSetting)
     {
         //
     }
@@ -54,28 +54,26 @@ class HeroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHeroRequest $request, Hero $hero)
+    public function update(UpdateSkillSectionSettingRequest $request, $id)
     {
-        $data = Hero::first();
-        $imagePath = handleUploads('image', $data);
-        Hero::updateOrCreate([
-            'id' => $hero->id,
+        $model = SkillSectionSetting::first();
+        $imagePath = handleUploads('image', $model);
+        SkillSectionSetting::updateOrCreate([
+            'id' => $id,
         ], [
             'title' => isset($request->title) ? $request->title : "",
             'sub_title' => isset($request->sub_title) ? $request->sub_title : "",
-            'btn_txt' => isset($request->btn_txt) ? $request->btn_txt : "",
-            'btn_url' => isset($request->btn_url) ? $request->btn_url : "",
-            'image' => isset($imagePath) ? $imagePath : $data->image,
+            'image' => isset($imagePath) ? $imagePath : $model->image,
         ]);
 
         toastr()->success('Details updated successfully.','Success!');
-        return redirect()->route('admin.hero.create');
+        return redirect()->route('admin.typer-title.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Hero $hero)
+    public function destroy(SkillSectionSetting $skillSectionSetting)
     {
         //
     }

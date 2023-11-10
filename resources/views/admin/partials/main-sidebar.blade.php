@@ -63,14 +63,6 @@
                         </li>
                     </ul>
                 </li> --}}
-                <li class="nav-item">
-                    <a href="{{route('dashboard')}}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            {{__('Dashboard')}}
-                        </p>
-                    </a>
-                </li>
                 {{-- 
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
@@ -82,6 +74,17 @@
                     </a>
                 </li>
                  --}}
+                 
+                 <!-- Dashboard -->
+                 <li class="nav-item">
+                    <a href="{{route('dashboard')}}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            {{__('Dashboard')}}
+                        </p>
+                    </a>
+                </li>
+                 <!-- Hero Section -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-image"></i>
@@ -144,6 +147,7 @@
                          --}}
                     </ul>
                 </li>
+                <!-- Services Section -->
                 <li class="nav-item">
                     <a href="{{route('admin.service.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
@@ -152,6 +156,7 @@
                         </p>
                     </a>
                 </li>
+                <!-- About Section -->
                 <li class="nav-item">
                     <a href="{{route('admin.about.index')}}" class="nav-link">
                         <i class="nav-icon fa fa-user-circle" aria-hidden="true"></i>
@@ -160,11 +165,12 @@
                         </p>
                     </a>
                 </li>
+                <!-- PortFolio Section -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-project-diagram"></i>
                         <p>
-                            {{__('PortFolio Section')}}
+                            {{__('PortFolio')}}
                             <i class="fas fa-angle-left right"></i>
                             {{-- <span class="badge badge-info right">6</span> --}}
                         </p>
@@ -190,6 +196,32 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Skills Section -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        {{-- <i class="nav-icon fas fa-project-diagram"></i> --}}
+                        <i class="nav-icon fas fa-graduation-cap    "></i>
+                        <p>
+                            {{__('Skills')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.skill-section-setting.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Section Settings')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.portfolio-item.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Portfolio Items')}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 {{-- 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
