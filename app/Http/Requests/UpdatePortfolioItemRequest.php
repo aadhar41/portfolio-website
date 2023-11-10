@@ -22,7 +22,12 @@ class UpdatePortfolioItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'image' => ['required', 'image', 'max:5000'],
+            'title' => ['required', 'max:500'],
+            'description' => ['required', 'max:5000'],
+            'category_id' => ['required', 'numeric'],
+            'client' => ['max:200'],
+            'website' => ['url'],
         ];
     }
 }

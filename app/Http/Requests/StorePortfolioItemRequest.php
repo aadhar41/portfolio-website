@@ -27,7 +27,7 @@ class StorePortfolioItemRequest extends FormRequest
             'description' => ['required', 'max:5000'],
             'category_id' => ['required', 'numeric'],
             'client' => ['max:200'],
-            'website' => ['max:200'],
+            'website' => ['url'],
         ];
     }
 }
