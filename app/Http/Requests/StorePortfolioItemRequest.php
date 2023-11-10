@@ -11,7 +11,7 @@ class StorePortfolioItemRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StorePortfolioItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'image' => ['required', 'image', 'max:5000'],
+            'title' => ['required', 'max:500'],
+            'description' => ['required', 'max:5000'],
+            'category_id' => ['required', 'numeric'],
+            'client' => ['max:200'],
+            'website' => ['max:200'],
         ];
     }
 }

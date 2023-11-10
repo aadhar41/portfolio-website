@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PortfolioItem;
 use App\Http\Requests\StorePortfolioItemRequest;
 use App\Http\Requests\UpdatePortfolioItemRequest;
+use App\Models\Category;
 use Illuminate\Support\Str;
 
 class PortfolioItemController extends Controller
@@ -24,9 +25,9 @@ class PortfolioItemController extends Controller
      */
     public function create()
     {
-        // $portfolioItem = PortfolioItem::first();
-        // return view("admin.portfolio-item.create", compact('portfolioItem'));
-        return view("admin.portfolio-item.create");
+        $categories = Category::all();
+        return view("admin.portfolio-item.create", compact('categories'));
+        // return view("admin.portfolio-item.create");
     }
 
     /**
@@ -34,13 +35,18 @@ class PortfolioItemController extends Controller
      */
     public function store(StorePortfolioItemRequest $request)
     {
+        $imagePath = handleUploads('image');
         $portfolioItem = new PortfolioItem();
-        $portfolioItem->name = $request->name;
-        $portfolioItem->slug = Str::slug($request->name, '-');
+        $portfolioItem->image = $imagePath;
+        $portfolioItem->title = $request->title;
+        $portfolioItem->category_id = $request->category_id;
+        $portfolioItem->description = $request->description;
+        $portfolioItem->client = $request->client;
+        $portfolioItem->website = $request->website;
         $portfolioItem->save();
 
-        toastr()->success('Category created successfully.','Success!');
-        return redirect()->route('admin.category.index');
+        toastr()->success('Portfolio Item created successfully.','Success!');
+        return redirect()->route('admin.portfolio-item.index');
     }
 
     /**

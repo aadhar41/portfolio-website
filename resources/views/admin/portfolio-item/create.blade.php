@@ -6,13 +6,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('admin.portfolio-item.update', 1)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.portfolio-item.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
+                    {{-- @method('PUT') --}}
 
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">{{__('Create About Content')}}</h3>
+                            <h3 class="card-title">{{__('Create Portfolio Item')}}</h3>
                             <div class="card-tools">
                                 <a href="{{route('admin.portfolio-item.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> {{__('Lists')}}</a>
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -31,15 +31,11 @@
 
                             <div class="form-group">
                                 <div class="form-group">
-                                    <label for="category">{{__('Category')}}</label>
-                                    <select class="form-control select2" multiple="multiple" name="category" id="category" data-placeholder="{{__('Select a Category')}}" style="width: 100%;">
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                    <label for="category_id">{{__('Category')}}</label>
+                                    <select class="form-control select2" name="category_id" id="category_id" data-placeholder="{{__('Select a Category')}}" style="width: 100%;">
+                                        @foreach ($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -68,25 +64,12 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- @if ($about->image)
+                            {{-- @if (isset($portfolioItem->image))
                             <div class="form-group">
-                                <img src="{{asset($about->image)}}" class="img-fluid img-thumbnail ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" height="150" width="230" alt="Image">
+                                <img src="{{asset($portfolioItem->image)}}" class="img-fluid img-thumbnail ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" height="150" width="230" alt="Image">
                             </div>
-                            @endif
-                            @if ($about->resume) --}}
-                            {{-- <a href="javascript:void(0);">
-                                <i class="fa fa-file-pdf ml-2 mt-2 mb-3" style="font-size: 100px" aria-hidden="true"></i>
-                            </a>
                             @endif --}}
-                            <div class="form-group">
-                                <label for="resume">{{__('Resume')}}</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" name="resume" class="custom-file-input" id="resume">
-                                        <label class="custom-file-label" for="resume">{{__('Choose Resume')}}...</label>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
