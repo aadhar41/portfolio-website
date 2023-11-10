@@ -7,9 +7,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Portfolio') }}</title>
     <link rel="icon" type="image/x-icon" href="{{asset('dist/img/favicon.png')}}">
-
+    
     <!-- jQuery -->
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+        <!-- Select2 -->
+        <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
+        <link rel="stylesheet" href="{{asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+        
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -19,23 +23,22 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-    <!-- iCheck -->
-    {{-- <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}"> --}}
-    <!-- JQVMap -->
-    {{-- <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}"> --}}
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
-    {{-- <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+
     <!-- dropzonejs -->
     <link rel="stylesheet" href="{{asset('plugins/dropzone/min/dropzone.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Scripts -->
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
   
 </head>
 
@@ -104,22 +107,16 @@
     <!-- Bootstrap 4 -->
     <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <!-- ChartJS -->
-    {{-- <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script> --}}
-    <!-- Sparkline -->
-    {{-- <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script> --}}
-    <!-- JQVMap -->
-    {{-- <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-    <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script> --}}
-    <!-- jQuery Knob Chart -->
-    {{-- <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script> --}}
+
     <!-- daterangepicker -->
     <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
-    {{-- <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script> --}}
+    <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
     <!-- Summernote -->
     <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <!-- select2.full.min -->
+    <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
     <!-- overlayScrollbars -->
     <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 
@@ -129,7 +126,7 @@
     <!-- AdminLTE App -->
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+    {{-- <script src="{{asset('dist/js/pages/dashboard.js')}}"></script> --}}
     <script src="{{asset('dist/js/demo.js')}}"></script>
     
  
@@ -139,6 +136,15 @@
         var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
         })
+
+        $(document).ready(function () {
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+            theme: 'bootstrap4'
+            })
+        });
     </script>
 
     @if (!empty($errors->all()))
