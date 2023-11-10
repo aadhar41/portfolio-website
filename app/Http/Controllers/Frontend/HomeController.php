@@ -17,22 +17,30 @@ use Illuminate\View\View;
 class HomeController extends Controller
 {
     //
-    public function index() {
+    public function index()
+    {
         $hero = Hero::first();
         $typerTitles = TyperTitle::pluck('title');
-        $services = Service::pluck('description','name');
-        $about = About::first(['title','description','image','resume']);
-        $portfolioSectionSettings = PortfolioSectionSetting::first(['title','sub_title']);
+        $services = Service::pluck('description', 'name');
+        $about = About::first(['title', 'description', 'image', 'resume']);
+        $portfolioSectionSettings = PortfolioSectionSetting::first(['title', 'sub_title']);
         $categories = Category::all();
         $portfolioItems = PortfolioItem::all();
         return view('frontend.home', compact(
-            'hero', 
-            'typerTitles', 
-            'services', 
-            'about', 
+            'hero',
+            'typerTitles',
+            'services',
+            'about',
             'portfolioSectionSettings',
             'categories',
             'portfolioItems',
         ));
     }
+
+    public function showPortfolio($id)
+    {
+        $portfolioItems = PortfolioItem::findOrFail($id);
+        return view('frontend.portfolio-details', compact('portfolioItems'));
+    }
+
 }

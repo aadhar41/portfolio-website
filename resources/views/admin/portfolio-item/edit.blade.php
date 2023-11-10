@@ -42,7 +42,7 @@
 
                             <div class="form-group">
                                 <label>{{__('Description')}}</label>
-                                <textarea class="form-control summernote" rows="3" id="description" name="description" placeholder="{{__('Description')}}">{!! old('description', $data->description) !!}</textarea>
+                                <textarea class="form-control summernote" rows="5" id="description" name="description" placeholder="{{__('Description')}}">{!! old('description', $data->description) !!}</textarea>
                             </div>
 
                             <div class="form-group">
@@ -74,7 +74,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">
-                                {{__('Create')}}
+                                {{__('Update')}}
                             </button>
                         </div>
                     </div>
