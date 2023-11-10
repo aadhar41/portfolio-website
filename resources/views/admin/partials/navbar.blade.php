@@ -5,10 +5,10 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('dashboard')}}" class="nav-link">Home</a>
+            <a href="{{route('dashboard')}}" class="nav-link">{{__('Home')}}</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('profile.edit')}}" class="nav-link">Profile</a>
+            <a href="{{route('profile.edit')}}" class="nav-link">{{__('Profile')}}</a>
         </li>
     </ul>
 
@@ -22,7 +22,7 @@
             <div class="navbar-search-block">
                 <form class="form-inline">
                     <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control-navbar" type="search" placeholder="{{__('Search')}}" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
                                 <i class="fas fa-search"></i>
@@ -91,7 +91,7 @@
                     <!-- Message End -->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                <a href="#" class="dropdown-item dropdown-footer">{{__('See All Messages')}}</a>
             </div>
         </li>
         <!-- Notifications Dropdown Menu -->
@@ -154,7 +154,7 @@
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="dropdown-item dropdown-footer" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout"><i class="fa fa-power-off mr-2" aria-hidden="true"></i> Logout</button>
+                    <button type="submit" class="dropdown-item dropdown-footer" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout"><i class="fa fa-power-off mr-2" aria-hidden="true"></i> {{__('Logout')}}</button>
                 </form>
             </div>
         </li>

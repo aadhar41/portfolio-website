@@ -11,9 +11,9 @@
                     @method('PUT')
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Category Edit</h3>
+                            <h3 class="card-title">{{__('Category Edit')}}</h3>
                             <div class="card-tools">
-                                <a href="{{route('admin.category.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> Lists</a>
+                                <a href="{{route('admin.category.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> {{__('Lists')}}</a>
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>
                                 </button>
@@ -24,14 +24,14 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name', $data->name)}}" />
+                                <label for="name">{{__('Name')}}</label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="{{__('Name')}}" value="{{old('name', $data->name)}}" />
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">
-                                Update
+                                {{__('Update')}}
                             </button>
                         </div>
                     </div>

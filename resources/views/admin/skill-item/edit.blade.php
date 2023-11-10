@@ -6,13 +6,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.skill-item.update', $data->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
+
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">{{__('Create Portfolio Category')}}</h3>
+                            <h3 class="card-title">{{__('Create Skill Item')}}</h3>
                             <div class="card-tools">
-                                <a href="{{route('admin.category.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> {{__('Lists')}}</a>
+                                <a href="{{route('admin.skill-item.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> {{__('Lists')}}</a>
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>
                                 </button>
@@ -24,13 +26,18 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="name">{{__('Name')}}</label>
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name')}}" />
+                                <input class="form-control" id="name" name="name" type="text" placeholder="{{__('Name')}}" value="{{old('name', $data->name)}}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="percent">{{__('Percent')}}</label>
+                                <input class="form-control" id="percent" name="percent" type="number" placeholder="{{__('Percent')}}" value="{{old('percent', $data->percent)}}" />
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">
-                                {{__('Create')}}
+                                {{__('Update')}}
                             </button>
                         </div>
                     </div>

@@ -214,9 +214,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.portfolio-item.index')}}" class="nav-link">
+                            <a href="{{route('admin.skill-item.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>{{__('Portfolio Items')}}</p>
+                                <p>{{__('Skill Items')}}</p>
                             </a>
                         </li>
                     </ul>
