@@ -76,8 +76,6 @@ class SkillItemController extends Controller
     {
         $data = SkillItem::findOrFail($id);
         $data->delete();
-        deleteFileIfExists($data->image);
-
         toastr()->error('Detail deleted successfully.','Success!');
         return redirect()->route('admin.skill-item.index');
     }
