@@ -41,7 +41,7 @@
                             </div>
                             @if ($data->image)
                             <div class="form-group">
-                                <img src="{{asset($data->image)}}" class="img-fluid img-thumbnail ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" height="250" width="330" alt="Image">
+                                <img src="{{asset($data->image)}}" class="img-fluid img-thumbnail ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" height="220" width="220" alt="Image">
                             </div>
                             @endif
                         </div>

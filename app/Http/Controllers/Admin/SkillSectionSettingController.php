@@ -67,7 +67,7 @@ class SkillSectionSettingController extends Controller
         ]);
 
         toastr()->success('Details updated successfully.','Success!');
-        return redirect()->route('admin.typer-title.index');
+        return redirect()->route('admin.skill-section-setting.create');
     }
 
     /**
