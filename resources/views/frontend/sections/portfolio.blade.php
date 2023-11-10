@@ -24,18 +24,30 @@
         </div>
         <div class="portfolio-wrapper">
             <div class="row portfolios">
-                @foreach ($portfolioItems as $item)
-                    <div data-wow-delay="0.3s" class="col-md-6 col-lg-4 filter-item {{$item->category->slug}}">
-                        <div class="single-portfolio">
-                            <figure class="portfolio-image">
-                                <img src="{{$item->image}}" alt="{{$item->title}}">
-                            </figure>
-                            <div class="portfolio-content">
-                                <a href="{{$item->image}}" data-lity class="icon"><i class="fas fa-plus"></i></a>
-                                <h4 class="title"><a href="javascript:void(0);">{{$item->title}}</a></h4>
-                                <div class="desc">
-                                    <p>{!! Str::limit($item->description, 100); !!}</p>
-                                </div>
+                <div data-wow-delay="0.3s" class="col-md-6 col-lg-4 filter-item branding">
+                    <div class="single-portfolio">
+                        <figure class="portfolio-image">
+                            <img src="{{asset('frontend/images/portfolio-1.jpg')}}" alt="">
+                        </figure>
+                        <div class="portfolio-content">
+                            <a href="{{asset('frontend/images/portfolio-1.jpg')}}" data-lity class="icon"><i class="fas fa-plus"></i></a>
+                            <h4 class="title"><a href="javascript:void(0);">Black Golden</a></h4>
+                            <div class="desc">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-wow-delay="0.4s" class="col-md-6 col-lg-4 filter-item interface">
+                    <div class="single-portfolio">
+                        <figure class="portfolio-image">
+                            <img src="{{asset('frontend/images/portfolio-2.jpg')}}" alt="">
+                        </figure>
+                        <div class="portfolio-content">
+                            <a href="{{asset('frontend/images/portfolio-2.jpg')}}" data-lity class="icon"><i class="fas fa-plus"></i></a>
+                            <h4 class="title"><a href="javascript:void(0);">Fitzgerald Stanton</a></h4>
+                            <div class="desc">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
                     </div>
