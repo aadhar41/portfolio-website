@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\PortfolioItem;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -78,9 +79,15 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $data = Category::findOrFail($id);
-        $data->delete();
-
-        toastr()->error('Detail deleted successfully.','Success!');
+        $hasItem = PortfolioItem::where('category_id', $data->id)->count();
+        if ($hasItem == 0) {
+            $data->delete();
+            $msg = 'Category deleted successfully.';
+            toastr()->success($msg, 'Success!');
+        } else {
+            $msg = 'You can not delete this category.';
+            toastr()->error($msg, 'Error!');
+        }
         return redirect()->back();
     }
 }
