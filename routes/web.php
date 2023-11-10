@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
+use App\Http\Controllers\Admin\PortfolioItemController;
+use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TyperTitleController;
@@ -52,14 +55,27 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+
     Route::resource('hero', HeroController::class);
     // Typer Title Route
     Route::resource('typer-title', TyperTitleController::class);
+
     // Service Route
     Route::resource('service', ServiceController::class);
+
     // About Route
-    Route::resource('about', AboutController::class);
-    // Resume Download
     Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
+    Route::resource('about', AboutController::class);
+
+    // Category Route
+    Route::resource('category', CategoryController::class);
+
+    // Portfolio Item Route
+    Route::resource('portfolio-item', PortfolioItemController::class);
+
+    // Portfolio Section Route admin.portfolio-setting.index
+    Route::resource('portfolio-setting', PortfolioSectionSettingController::class);
 });
