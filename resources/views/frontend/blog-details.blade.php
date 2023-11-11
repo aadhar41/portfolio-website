@@ -44,13 +44,13 @@
                 </div>
                 <div class="single-navigation">
                     @if (!empty($previousPost->id))
-                    <a href="{{route('show.blog', $previousPost->id)}}" class="nav-link"><span class="icon"><i class="fal fa-angle-left"></i></span><span class="text">{!! $previousPost->title !!}</span></a>
+                    <a href="{{route('frontend.show.blog', $previousPost->id)}}" class="nav-link"><span class="icon"><i class="fal fa-angle-left"></i></span><span class="text">{!! $previousPost->title !!}</span></a>
                     @else
                     <a href="javascript:void(0);" class="nav-link"><span class="text"></span></a>
                     @endif
                     
                     @if (!empty($nextPost->id))
-                    <a href="{{route('show.blog', $nextPost->id)}}" class="nav-link"><span class="text">{!! $nextPost->title !!}</span><span class="icon"><i class="fal fa-angle-right"></i></span></a>
+                    <a href="{{route('frontend.show.blog', $nextPost->id)}}" class="nav-link"><span class="text">{!! $nextPost->title !!}</span><span class="icon"><i class="fal fa-angle-right"></i></span></a>
                     @else
                     <a href="javascript:void(0);" class="nav-link"><span class="text"></span></a>
                     @endif

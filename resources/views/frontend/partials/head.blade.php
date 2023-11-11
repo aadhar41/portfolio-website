@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="{{asset('frontend/css/style-plugin-collection.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/theme.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
+    <style>
+        .page-item {
+            background: #ff895e;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            line-height: 40px;
+            position: relative;
+            z-index: 1;
+            color: #000;
+        }
+
+        .page-item > a {
+            border: none;
+            background-color: #f8f9fa;
+            color: #000;
+        }
+
+        .page-item > a:hover {
+            border: none;
+            color: #000;
+        }
+        
+    </style>
 </head>
 
 <body>

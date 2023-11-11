@@ -34,21 +34,31 @@ use Illuminate\Support\Facades\Route;
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    Route::get('/blog', function () {
-        return view('frontend.blog');
-    })->name('blog');
+    // Route::get('/blog', function () {
+    //     return view('frontend.blog');
+    // })->name('blog');
 
-    Route::get('/blog-details', function () {
-        return view('frontend.blog-details');
-    })->name('blog-details');
+    // Route::get('/blog-details', function () {
+    //     return view('frontend.blog-details');
+    // })->name('blog-details');
     
     Route::get('/portfolio', function () {
         return view('frontend.portfolio');
     })->name('portfolio');
     
-    Route::get('/portfolio-details', function () {
-        return view('frontend.portfolio-details');
-    })->name('portfolio-details');
+    // Route::get('/portfolio-details', function () {
+    //     return view('frontend.portfolio-details');
+    // })->name('portfolio-details');
+
+    // portfolio details
+    Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+
+    // blog details
+    Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
+
+    // blogs page
+    Route::get('blogs', [HomeController::class, 'blogs'])->name('blogs');
+
 });
 
 
@@ -62,11 +72,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// portfolio details
-Route::get('/portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
-
-// blog details
-Route::get('/blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 

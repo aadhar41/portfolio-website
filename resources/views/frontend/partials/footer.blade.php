@@ -20,8 +20,8 @@
                 <ul class="nav-menu">
                     <li><a href="{{route('frontend.home')}}">Home</a></li>
                     <li><a href="javascript:void(0);">About</a></li>
-                    <li><a href="{{route('frontend.portfolio')}}">Portfolio</a></li>
-                    <li><a href="{{route('frontend.blog')}}">Blog</a></li>
+                    {{-- <li><a href="{{route('frontend.portfolio')}}">Portfolio</a></li> --}}
+                    <li><a href="{{route('frontend.blogs')}}">Blog</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-lg-3 widget">

@@ -15,20 +15,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);">About</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link <?php if(request()->route()->named('frontend.portfolio')) { echo 'active'; } ?>" href="javascript:void(0);">Portfolio <i class="fas fa-angle-down"></i></a>
                     <ul class="sub_menu">
                         <li><a href="{{route('frontend.portfolio')}}">Portfolio Grid</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if(request()->route()->named('frontend.blog')) { echo 'active'; } ?>" href="javascript:void(0);">Blog <i class="fas fa-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{route('frontend.blog')}}">Blog Grid</a></li>
-                    </ul>
+                    <a class="nav-link <?php if(request()->route()->named('frontend.blogs')) { echo 'active'; } ?>" aria-current="page" href="{{route('frontend.blogs')}}">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);">Contact</a>
