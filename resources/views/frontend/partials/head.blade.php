@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/style-plugin-collection.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/theme.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <style>
         .page-item {
             background: #ff895e;

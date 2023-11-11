@@ -48,6 +48,9 @@ Route::name('frontend.')->group(function () {
     // blogs page
     Route::get('blogs', [HomeController::class, 'blogs'])->name('blogs');
 
+    // contact route
+    Route::post('contact', [HomeController::class, 'contact'])->name('contact');
+
 });
 
 
