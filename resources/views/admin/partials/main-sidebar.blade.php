@@ -271,9 +271,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.feedback-setting.create')}}" class="nav-link">
+                            <a href="{{route('admin.blog.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>{{__('Section Settings')}}</p>
+                                <p>{{__('Blog List')}}</p>
                             </a>
                         </li>
                     </ul>
