@@ -67,7 +67,7 @@ class BlogCategoryController extends Controller
         $data->slug = Str::slug($request->name, '-');
         $data->save();
         toastr()->success('Details updated successfully.','Success!');
-        return redirect()->back();
+        return redirect()->route('admin.blog-category.index');
     }
 
     /**
@@ -75,7 +75,10 @@ class BlogCategoryController extends Controller
      */
     public function destroy($id)
     {
-        // $data = BlogCategory::findOrFail($id);
+        $data = BlogCategory::findOrFail($id);
+        $data->delete();
+        toastr()->success('Category deleted successfully.', 'Success!');
+        return redirect()->route('admin.blog-category.index');
         // $hasItem = PortfolioItem::where('category_id', $data->id)->count();
         // if ($hasItem == 0) {
         //     $data->delete();
