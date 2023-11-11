@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\BlogSectionSetting;
 use App\Models\Category;
 use App\Models\Experience;
 use App\Models\Feedback;
@@ -41,6 +42,7 @@ class HomeController extends Controller
         $feedbackSetting = FeedbackSectionSetting::first();
         $blogCategories = BlogCategory::all();
         $blogs = Blog::latest()->take(5)->get();
+        $blogSectionSetting = BlogSectionSetting::first();
         return view('frontend.home', compact(
             'hero',
             'typerTitles',
@@ -56,6 +58,7 @@ class HomeController extends Controller
             'feedbackSetting',
             'blogCategories',
             'blogs',
+            'blogSectionSetting',
         ));
     }
 

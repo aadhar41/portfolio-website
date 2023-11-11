@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -34,21 +35,9 @@ use Illuminate\Support\Facades\Route;
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    // Route::get('/blog', function () {
-    //     return view('frontend.blog');
-    // })->name('blog');
-
-    // Route::get('/blog-details', function () {
-    //     return view('frontend.blog-details');
-    // })->name('blog-details');
-    
     Route::get('/portfolio', function () {
         return view('frontend.portfolio');
     })->name('portfolio');
-    
-    // Route::get('/portfolio-details', function () {
-    //     return view('frontend.portfolio-details');
-    // })->name('portfolio-details');
 
     // portfolio details
     Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
@@ -109,7 +98,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     // Feedback Routes
     Route::resource('feedback', FeedbackController::class);
 
-    // FeedbackSectionSetting Routes
+    // Feedback Section Setting Routes
     Route::resource('feedback-setting', FeedbackSectionSettingController::class);
 
     // BlogCategory Routes
@@ -117,4 +106,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     // Blog Routes
     Route::resource('blog', BlogController::class);
+
+    // Blog Section Setting Routes
+    Route::resource('blog-setting', BlogSectionSettingController::class);
 });
