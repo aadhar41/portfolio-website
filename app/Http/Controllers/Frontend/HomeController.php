@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\BlogSectionSetting;
 use App\Models\Category;
 use App\Models\Experience;
 use App\Models\Feedback;
@@ -36,6 +40,9 @@ class HomeController extends Controller
         $experience = Experience::first();
         $feedbacks = Feedback::first();
         $feedbackSetting = FeedbackSectionSetting::first();
+        $blogCategories = BlogCategory::all();
+        $blogs = Blog::latest()->take(5)->get();
+        $blogSectionSetting = BlogSectionSetting::first();
         return view('frontend.home', compact(
             'hero',
             'typerTitles',
@@ -49,6 +56,9 @@ class HomeController extends Controller
             'experience',
             'feedbacks',
             'feedbackSetting',
+            'blogCategories',
+            'blogs',
+            'blogSectionSetting',
         ));
     }
 
@@ -56,6 +66,20 @@ class HomeController extends Controller
     {
         $portfolioItems = PortfolioItem::findOrFail($id);
         return view('frontend.portfolio-details', compact('portfolioItems'));
+    }
+
+    public function showBlog($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $previousPost = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
+        $nextPost = Blog::where('id', '>', $blog->id)->orderBy('id', 'asc')->first();
+        return view('frontend.blog-details', compact('blog', 'previousPost', 'nextPost'));
+    }
+
+    public function blogs()
+    {
+        $blogs = Blog::latest()->paginate(3);
+        return view('frontend.blog', compact('blogs'));
     }
 
 }

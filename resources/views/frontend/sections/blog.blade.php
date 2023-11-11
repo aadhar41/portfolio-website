@@ -3,11 +3,9 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="section-title">
-                    <h3 class="title">Creative Blog Post</h3>
+                    <h3 class="title">{!! $blogSectionSetting->title !!}</h3>
                     <div class="desc">
-                        <p>Earum quos animi numquam excepturi eveniet explicabo repellendus rem esse.
-                            Quae quasi
-                            odio enim.</p>
+                        <p>{!! $blogSectionSetting->sub_title !!}</p>
                     </div>
                 </div>
             </div>
@@ -15,89 +13,36 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="blog-slider">
-                    <div class="single-blog">
-                        <figure class="blog-image">
-                            <img src="{{asset('frontend/images/blog-1.jpg')}}" alt="">
-                        </figure>
-                        <div class="blog-content">
-                            <h3 class="title"><a href="javascript:void(0);">Great things never come from.</a></h3>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                                    consequuntur provident iusto cumque . </p>
+                    @if (!empty($blogs))
+                        @foreach ($blogs as $blog)
+                            <div class="single-blog">
+                                <figure class="blog-image">
+                                    <img src="{{asset($blog->image)}}" alt="Img">
+                                </figure>
+                                <div class="blog-content">
+                                    <h3 class="title"><a href="{{route('frontend.show.blog', $blog->id)}}">{!! $blog->title !!}</a></h3>
+                                    <div class="desc">
+                                        <p>{!! Str::limit($blog->description, 150, '...'); !!}</p>
+                                    </div>
+                                    <a href="{{route('frontend.show.blog', $blog->id)}}" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
+                                </div>
                             </div>
-                            <a href="#" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <figure class="blog-image">
-                            <img src="{{asset('frontend/images/blog-2.jpg')}}" alt="">
-                        </figure>
-                        <div class="blog-content">
-                            <h3 class="title"><a href="javascript:void(0);">Don’t stop when you’re tired. Stop
-                                    when.</a></h3>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                                    consequuntur provident iusto cumque . </p>
+                        @endforeach
+                    @else                        
+                        <div class="single-blog">
+                            <figure class="blog-image">
+                                <img src="{{asset('frontend/images/blog-1.jpg')}}" alt="">
+                            </figure>
+                            <div class="blog-content">
+                                <h3 class="title"><a href="javascript:void(0);">Great things never come from.</a></h3>
+                                <div class="desc">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+                                        consequuntur provident iusto cumque . </p>
+                                </div>
+                                <a href="javascript:void(0);" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
                             </div>
-                            <a href="#" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
                         </div>
-                    </div>
-                    <div class="single-blog">
-                        <figure class="blog-image">
-                            <img src="{{asset('frontend/images/blog-3.jpg')}}" alt="">
-                        </figure>
-                        <div class="blog-content">
-                            <h3 class="title"><a href="javascript:void(0);">Success doesn’t just find you.</a>
-                            </h3>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                                    consequuntur provident iusto cumque . </p>
-                            </div>
-                            <a href="#" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <figure class="blog-image">
-                            <img src="{{asset('frontend/images/blog-4.jpg')}}" alt="">
-                        </figure>
-                        <div class="blog-content">
-                            <h3 class="title"><a href="javascript:void(0);">Sometimes later becomes never.</a>
-                            </h3>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                                    consequuntur provident iusto cumque . </p>
-                            </div>
-                            <a href="#" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <figure class="blog-image">
-                            <img src="{{asset('frontend/images/blog-5.jpg')}}" alt="">
-                        </figure>
-                        <div class="blog-content">
-                            <h3 class="title"><a href="javascript:void(0);">Don’t wait for opportunity. Create
-                                    it.</a></h3>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                                    consequuntur provident iusto cumque . </p>
-                            </div>
-                            <a href="#" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <figure class="blog-image">
-                            <img src="{{asset('frontend/images/blog-6.jpg')}}" alt="">
-                        </figure>
-                        <div class="blog-content">
-                            <h3 class="title"><a href="javascript:void(0);">Your limitation-it’s only your
-                                    imagination.</a></h3>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                                    consequuntur provident iusto cumque . </p>
-                            </div>
-                            <a href="#" class="button-primary-trans mouse-dir">Read More <span class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

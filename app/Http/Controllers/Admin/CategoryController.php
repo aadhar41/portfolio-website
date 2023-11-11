@@ -37,7 +37,6 @@ class CategoryController extends Controller
         $service->name = $request->name;
         $service->slug = Str::slug($request->name, '-');
         $service->save();
-
         toastr()->success('Category created successfully.','Success!');
         return redirect()->route('admin.category.index');
     }

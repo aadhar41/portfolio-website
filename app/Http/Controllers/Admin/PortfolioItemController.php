@@ -43,7 +43,6 @@ class PortfolioItemController extends Controller
         $portfolioItem->client = !empty($request->client) ? $request->client : "" ;
         $portfolioItem->website = !empty($request->website) ? $request->website : "" ;
         $portfolioItem->save();
-
         toastr()->success('Portfolio Item created successfully.','Success!');
         return redirect()->route('admin.portfolio-item.index');
     }
