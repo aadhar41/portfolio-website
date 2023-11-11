@@ -72,12 +72,9 @@ class BlogController extends Controller
         $imagePath = handleUploads('image', $model);
         $model->image = !empty($imagePath) ? $imagePath : $model->image ;
         $model->title = !empty($request->title) ? $request->title : "" ;
+        $model->category = !empty($request->category) ? $request->category : "" ;
         $model->description = !empty($request->description) ? $request->description : "" ;
-        $model->category_id = !empty($request->category_id) ? $request->category_id : "" ;
-        $model->client = !empty($request->client) ? $request->client : "" ;
-        $model->website = !empty($request->website) ? $request->website : "" ;
         $model->save();
-
         toastr()->success('Details updated successfully.','Success!');
         return redirect()->route('admin.blog.index');
     }
@@ -88,9 +85,8 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $data = Blog::findOrFail($id);
-        $data->delete();
         deleteFileIfExists($data->image);
-
+        $data->delete();
         toastr()->error('Detail deleted successfully.','Success!');
         return redirect()->route('admin.blog.index');
     }

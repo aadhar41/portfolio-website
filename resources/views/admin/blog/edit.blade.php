@@ -6,15 +6,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('admin.portfolio-item.update', $data->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.blog.update', $data->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">{{__('Create Portfolio Item')}}</h3>
+                            <h3 class="card-title">{{__('Update Blog Post')}}</h3>
                             <div class="card-tools">
-                                <a href="{{route('admin.portfolio-item.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> {{__('Lists')}}</a>
+                                <a href="{{route('admin.blog.index')}}" class="mr-3"><i class="fa fa-list" aria-hidden="true"></i> {{__('Lists')}}</a>
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>
                                 </button>
@@ -32,9 +32,9 @@
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="category_id">{{__('Category')}}</label>
-                                    <select class="form-control select2" name="category_id" id="category_id" data-placeholder="{{__('Select a Category')}}" style="width: 100%;">
+                                    <select class="form-control select2" name="category" id="category" data-placeholder="{{__('Select a Category')}}" style="width: 100%;">
                                         @foreach ($categories as $category)
-                                            <option value="{{$category->id}}" @selected($data->category_id == $category->id) > {{$category->name}} </option>
+                                            <option value="{{$category->id}}" @selected($data->category == $category->id) > {{$category->name}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -44,17 +44,7 @@
                                 <label>{{__('Description')}}</label>
                                 <textarea class="form-control summernote" rows="5" id="description" name="description" placeholder="{{__('Description')}}">{!! old('description', $data->description) !!}</textarea>
                             </div>
-
-                            <div class="form-group">
-                                <label for="client">{{__('Client')}}</label>
-                                <input class="form-control" id="client" name="client" type="text" placeholder="{{__('Client')}}" value="{{old('client', $data->client)}}" />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="website">{{__('Website')}}</label>
-                                <input class="form-control" id="website" name="website" type="text" placeholder="{{__('Website')}}" value="{{old('website', $data->website)}}" />
-                            </div>
-
+                            
                             <div class="form-group">
                                 <label for="image">{{__('Image')}}</label>
                                 <div class="input-group">
