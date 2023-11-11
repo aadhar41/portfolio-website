@@ -208,15 +208,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.skill-section-setting.create')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>{{__('Section Settings')}}</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{route('admin.skill-item.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Skill Items')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.skill-section-setting.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Section Settings')}}</p>
                             </a>
                         </li>
                     </ul>
@@ -229,6 +229,30 @@
                             {{__('Experience')}}
                         </p>
                     </a>
+                </li>
+                <!-- Feedback Section -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-comment" aria-hidden="true"></i>
+                        <p>
+                            {{__('Feedback')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.feedback.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Feedbacks')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.skill-section-setting.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Section Settings')}}</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 {{-- 
