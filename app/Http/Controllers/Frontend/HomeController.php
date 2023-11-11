@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Category;
 use App\Models\Experience;
 use App\Models\Feedback;
@@ -36,6 +39,8 @@ class HomeController extends Controller
         $experience = Experience::first();
         $feedbacks = Feedback::first();
         $feedbackSetting = FeedbackSectionSetting::first();
+        $blogCategories = BlogCategory::all();
+        $blogs = Blog::latest()->take(5)->get();
         return view('frontend.home', compact(
             'hero',
             'typerTitles',
@@ -49,6 +54,8 @@ class HomeController extends Controller
             'experience',
             'feedbacks',
             'feedbackSetting',
+            'blogCategories',
+            'blogs',
         ));
     }
 
