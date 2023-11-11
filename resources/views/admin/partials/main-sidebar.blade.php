@@ -247,7 +247,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.skill-section-setting.create')}}" class="nav-link">
+                            <a href="{{route('admin.feedback-setting.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Section Settings')}}</p>
                             </a>
