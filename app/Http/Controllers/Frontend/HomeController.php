@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Category;
+use App\Models\Experience;
 use App\Models\Hero;
 use App\Models\PortfolioItem;
 use App\Models\PortfolioSectionSetting;
@@ -30,6 +31,7 @@ class HomeController extends Controller
         $portfolioItems = PortfolioItem::all();
         $skillSection = SkillSectionSetting::first();
         $skills = SkillItem::all();
+        $experience = Experience::first();
         return view('frontend.home', compact(
             'hero',
             'typerTitles',
@@ -40,6 +42,7 @@ class HomeController extends Controller
             'portfolioItems',
             'skillSection',
             'skills',
+            'experience',
         ));
     }
 

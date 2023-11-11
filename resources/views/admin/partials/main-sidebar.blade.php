@@ -221,6 +221,15 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Experience Section -->
+                <li class="nav-item">
+                    <a href="{{route('admin.experience.create')}}" class="nav-link">
+                        <i class="nav-icon fa fa-list-alt" aria-hidden="true"></i>
+                        <p>
+                            {{__('Experience')}}
+                        </p>
+                    </a>
+                </li>
 
                 {{-- 
                 <li class="nav-item">
