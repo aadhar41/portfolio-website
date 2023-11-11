@@ -254,6 +254,30 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Blog Section -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-id-card" aria-hidden="true"></i>
+                        <p>
+                            {{__('Blog')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.blog-category.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Category')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.feedback-setting.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Section Settings')}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 {{-- 
                 <li class="nav-item">

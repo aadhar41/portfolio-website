@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -64,27 +65,29 @@ Route::get('/portfolio-details/{id}', [HomeController::class, 'showPortfolio'])-
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
+    // Hero Section Routes
     Route::resource('hero', HeroController::class);
-    // Typer Title Route
+
+    // Typer Title Routes
     Route::resource('typer-title', TyperTitleController::class);
 
-    // Service Route
+    // Service Routes
     Route::resource('service', ServiceController::class);
 
-    // About Route
+    // About Routes
     Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
     Route::resource('about', AboutController::class);
 
-    // Category Route
+    // Category Routes
     Route::resource('category', CategoryController::class);
 
-    // Portfolio Item Route
+    // Portfolio Item Routes
     Route::resource('portfolio-item', PortfolioItemController::class);
 
-    // Portfolio Section Route admin.portfolio-setting.index
+    // Portfolio Section Routes
     Route::resource('portfolio-setting', PortfolioSectionSettingController::class);
 
-    // Skills Section Setting
+    // Skills Section Setting Routes
     Route::resource('skill-section-setting', SkillSectionSettingController::class);
 
     // Skills Item Routes
@@ -98,4 +101,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     // FeedbackSectionSetting Routes
     Route::resource('feedback-setting', FeedbackSectionSettingController::class);
+
+    // BlogCategory Routes
+    Route::resource('blog-category', BlogCategoryController::class);
 });
