@@ -257,7 +257,7 @@
                 <!-- Blog Section -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-id-card" aria-hidden="true"></i>
+                        <i class="nav-icon fa fa-id-badge" aria-hidden="true"></i>
                         <p>
                             {{__('Blog')}}
                             <i class="fas fa-angle-left right"></i>
@@ -278,6 +278,24 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.blog-setting.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Section Settings')}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Contact Section -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-id-card" aria-hidden="true"></i>
+                        <p>
+                            {{__('Contact')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.contact-section-setting.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Section Settings')}}</p>
                             </a>
