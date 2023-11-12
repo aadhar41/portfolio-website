@@ -6,12 +6,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('admin.portfolio-setting.update', 1)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.contact-section-setting.update', 1)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">{{__('Portfolio Section Setting')}}</h3>
+                            <h3 class="card-title">{{__('Contact Section Setting')}}</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>

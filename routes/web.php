@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactSectionSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbackController;
@@ -47,6 +48,9 @@ Route::name('frontend.')->group(function () {
 
     // blogs page
     Route::get('blogs', [HomeController::class, 'blogs'])->name('blogs');
+
+    // contact route
+    Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 
 });
 
@@ -109,4 +113,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     // Blog Section Setting Routes
     Route::resource('blog-setting', BlogSectionSettingController::class);
+
+    // Contact Section Setting Routes
+    Route::resource('contact-section-setting', ContactSectionSettingController::class);
 });

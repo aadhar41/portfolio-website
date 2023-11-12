@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreContactFormRequest;
+use App\Mail\ContactMail;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogSectionSetting;
 use App\Models\Category;
+use App\Models\ContactSectionSetting;
 use App\Models\Experience;
 use App\Models\Feedback;
 use App\Models\FeedbackSectionSetting;
@@ -21,6 +24,7 @@ use App\Models\SkillItem;
 use App\Models\SkillSectionSetting;
 use App\Models\TyperTitle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -43,6 +47,7 @@ class HomeController extends Controller
         $blogCategories = BlogCategory::all();
         $blogs = Blog::latest()->take(5)->get();
         $blogSectionSetting = BlogSectionSetting::first();
+        $contactSectionSetting = ContactSectionSetting::first();
         return view('frontend.home', compact(
             'hero',
             'typerTitles',
@@ -59,6 +64,7 @@ class HomeController extends Controller
             'blogCategories',
             'blogs',
             'blogSectionSetting',
+            'contactSectionSetting',
         ));
     }
 
@@ -80,6 +86,12 @@ class HomeController extends Controller
     {
         $blogs = Blog::latest()->paginate(3);
         return view('frontend.blog', compact('blogs'));
+    }
+
+    public function contact(StoreContactFormRequest $request)
+    {
+        Mail::send(new ContactMail($request->all()));
+        return response()->json(['status' => 'success', 'message' => 'Mail sent successfully.']);
     }
 
 }
