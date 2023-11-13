@@ -1,8 +1,11 @@
 import './bootstrap';
-import 'laravel-datatables-vite';
+// import 'laravel-datatables-vite';
 
-// import 'https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js';
-// import 'https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js';
+import 'https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js';
+import 'https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js';
+// import 'https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js';
+// import 'https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js';
+
 import 'https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js';
 import 'https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js';
 import 'https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js';

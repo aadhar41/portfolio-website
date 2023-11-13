@@ -162,7 +162,7 @@
                 </li>
                 <!-- About Section -->
                 <li class="nav-item">
-                    <a href="{{route('admin.about.index')}}" class="nav-link {{setSidebarActive(['admin.about.*'])}}">
+                    <a href="{{route('admin.about.create')}}" class="nav-link {{setSidebarActive(['admin.about.*'])}}">
                         <i class="nav-icon fa fa-user-circle" aria-hidden="true"></i>
                         <p>
                             {{__('About Section')}}

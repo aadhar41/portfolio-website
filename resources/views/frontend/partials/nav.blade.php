@@ -22,26 +22,33 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link <?php if(request()->route()->named('frontend.home')) { echo 'active'; } ?>" aria-current="page" href="{{route('frontend.home')}}">Home</a>
+                    <a class="nav-link {{ (Route::currentRouteName() == 'frontend.home') ? 'active' : '' }}" aria-current="page" href="{{ (Route::currentRouteName() == 'frontend.home') ? '#home-page' : route('frontend.home') }}">Home</a>
                 </li>
+                @if (Route::currentRouteName() == 'frontend.home')
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-page">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills-page">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service-page">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-page">Contact</a>
+                    </li>
+                @endif
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);">About</a>
+                    <a class="nav-link {{ (Route::currentRouteName() == 'frontend.blogs') ? 'active' : '' }}" aria-current="page" href="{{ (Route::currentRouteName() == 'frontend.blogs') ? 'javascript:void(0);' : route('frontend.blogs') }}">Blog</a>
                 </li>
+                
                 {{-- <li class="nav-item">
-                    <a class="nav-link <?php if(request()->route()->named('frontend.portfolio')) { echo 'active'; } ?>" href="javascript:void(0);">Portfolio <i class="fas fa-angle-down"></i></a>
+                    <a class="nav-link {{ (Route::currentRouteName() == 'frontend.portfolio') ? 'active' : '' }}" href="javascript:void(0);">Portfolio <i class="fas fa-angle-down"></i></a>
                     <ul class="sub_menu">
                         <li><a href="{{route('frontend.portfolio')}}">Portfolio Grid</a></li>
                     </ul>
                 </li> --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if(request()->route()->named('frontend.blogs')) { echo 'active'; } ?>" aria-current="page" href="{{route('frontend.blogs')}}">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);">Contact</a>
-                </li>
             </ul>
         </div>
     </div>
