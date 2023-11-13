@@ -31,7 +31,7 @@
                                 <textarea class="form-control" rows="3" id="sub_title" name="sub_title" placeholder="{{__('Sub Title')}}">{{old('sub_title', $hero->sub_title)}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="btn_txt">{{(__'Button Text')}}</label>
+                                <label for="btn_txt">{{__('Button Text')}}</label>
                                 <input class="form-control" id="btn_txt" name="btn_txt" value="{{old('btn_txt', $hero->btn_txt)}}" type="text" placeholder="{{__('Button Text')}}">
                             </div>
                             <div class="form-group">
