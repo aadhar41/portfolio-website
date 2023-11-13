@@ -2,11 +2,18 @@
 <html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @php
+    $generalSetting = \App\Models\GeneralSetting::first();
+    @endphp
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Portfolio') }}</title>
+    @if (!empty($generalSetting->favicon))
+    <link rel="icon" type="image/x-icon" href="{{asset($generalSetting->favicon)}}">
+    @else
     <link rel="icon" type="image/x-icon" href="{{asset('dist/img/favicon.png')}}">
+    @endif
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/style-plugin-collection.css')}}">

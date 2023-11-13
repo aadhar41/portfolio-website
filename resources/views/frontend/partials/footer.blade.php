@@ -4,6 +4,7 @@
     $footerHelpLink = \App\Models\FooterHelpLink::all();
     $footerUsefulLink = \App\Models\FooterUsefulLink::all();
     $footerContactInfo = \App\Models\FooterContactInfo::first();
+    $generalSetting = \App\Models\GeneralSetting::first();
 @endphp
 
 <footer class="footer-area">
@@ -12,7 +13,11 @@
             <div class="col-md-12 col-lg-3 widget">
                 <div class="text-box">
                     <figure class="footer-logo">
-                        <img src="{{asset('frontend/images/theme/logo_transparent_two.png')}}" alt="Logo">
+                        @if (!empty($generalSetting->footer_logo))
+                            <img src="{{asset($generalSetting->footer_logo)}}" alt="Logo">
+                        @else
+                            <img src="{{asset('frontend/images/theme/logo_transparent_two.png')}}" alt="Logo">
+                        @endif
                     </figure>
                     <p>
                         @if ($footerInfo->info)
