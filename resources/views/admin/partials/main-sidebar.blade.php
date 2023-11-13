@@ -319,9 +319,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.footer-social.index')}}" class="nav-link">
+                            <a href="{{route('admin.footer-info.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Footer Information')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.footer-info.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Contact Info')}}</p>
                             </a>
                         </li>
                     </ul>
