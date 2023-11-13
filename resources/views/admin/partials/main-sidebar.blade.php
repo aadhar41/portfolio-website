@@ -327,7 +327,13 @@
                         <li class="nav-item">
                             <a href="{{route('admin.footer-contact-info.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>{{__('Contact Info')}}</p>
+                                <p>{{__('Footer Contact Info')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.footer-useful-link.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Footer Useful Info')}}</p>
                             </a>
                         </li>
                     </ul>
