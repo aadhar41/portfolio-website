@@ -21,7 +21,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-4 col-sm-6 col-12">
-                        <a href="{{route('admin.general-setting.index')}}">
+                        <a href="{{route('admin.seo-setting.index')}}">
                             <div class="info-box">
                                 <span class="info-box-icon bg-success"><i class="fa fa-search" aria-hidden="true"></i></span>
                                 <div class="info-box-content">
