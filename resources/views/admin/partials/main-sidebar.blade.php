@@ -325,14 +325,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.footer-info.create')}}" class="nav-link">
+                            <a href="{{route('admin.footer-contact-info.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Contact Info')}}</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
+                <br/><br/><br/><br/><br/>
                 {{-- 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
