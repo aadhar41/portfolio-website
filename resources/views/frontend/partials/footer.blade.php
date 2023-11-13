@@ -1,3 +1,11 @@
+@php
+    $footerInfo = \App\Models\FooterInfo::first();
+    $footerSocialLink = \App\Models\FooterSocialLink::all();
+    $footerHelpLink = \App\Models\FooterHelpLink::all();
+    $footerUsefulLink = \App\Models\FooterUsefulLink::all();
+    $footerContactInfo = \App\Models\FooterContactInfo::first();
+@endphp
+
 <footer class="footer-area">
     <div class="container">
         <div class="row footer-widgets">
@@ -6,39 +14,62 @@
                     <figure class="footer-logo">
                         <img src="{{asset('frontend/images/theme/logo_transparent_two.png')}}" alt="Logo">
                     </figure>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, libero. </p>
+                    <p>
+                        @if ($footerInfo->info)
+                            {!! $footerInfo->info !!}
+                        @endif 
+                    </p>
                     <ul class="d-flex flex-wrap">
-                        <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="javascript:void(0);"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="javascript:void(0);"><i class="fab fa-behance"></i></a></li>
+                        @if ($footerSocialLink)
+                            @foreach ($footerSocialLink as $link)                                
+                            <li><a href="{!! $link->url !!}"><i class="{!! $link->icon !!}"></i></a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>
             <div class="col-md-4 col-lg-2 offset-lg-1 widget">
                 <h3 class="widget-title">Useful Link</h3>
                 <ul class="nav-menu">
-                    <li><a href="{{route('frontend.home')}}">Home</a></li>
-                    <li><a href="javascript:void(0);">About</a></li>
-                    {{-- <li><a href="{{route('frontend.portfolio')}}">Portfolio</a></li> --}}
-                    <li><a href="{{route('frontend.blogs')}}">Blog</a></li>
+                    @if ($footerUsefulLink)
+                        @foreach ($footerUsefulLink as $usefulLink)
+                            <li><a href="{!! $usefulLink->url !!}">{!! $usefulLink->name !!}</a></li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
             <div class="col-md-4 col-lg-3 widget">
                 <h3 class="widget-title">Contact Info</h3>
                 <ul>
-                    <li>S-1, 108, R.K. Residency, C-Block, 302012, Jaipur, Rajasthan, India.</li>
-                    <li><a href="javascript:void(0);">+91-7737138843</a></li>
-                    <li><a href="javascript:void(0);">aadhar41@gmail.com</a></li>
+                    <li>
+                        @if ($footerContactInfo->address)
+                            {!! $footerContactInfo->address !!}
+                        @endif
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            @if ($footerContactInfo->phone)
+                                {!! $footerContactInfo->phone !!}
+                            @endif    
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            @if ($footerContactInfo->email)
+                                {!! $footerContactInfo->email !!}
+                            @endif     
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-4 col-lg-3 widget">
                 <h3 class="widget-title">Help</h3>
                 <ul class="nav-menu">
-                    <li><a href="javascript:void(0);">Privacy Policy</a></li>
-                    <li><a href="javascript:void(0);">404 Page</a></li>
-                    <li><a href="javascript:void(0);">Terms</a></li>
-                    <li><a href="javascript:void(0);">Documentation</a></li>
+                    @if ($footerHelpLink)
+                        @foreach ($footerHelpLink as $helplink)
+                        <li><a href="{!! $helplink->url !!}">{!! $helplink->name !!}</a></li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
         </div>
@@ -48,8 +79,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="copyright">
-                        <p>Copyright <?= date('Y'); ?> <span>{{ config('app.name', 'Portfolio') }}</span>. All Rights Reserved.</p>
-                        <p>Powered by {{ config('app.name', 'Portfolio') }} &nbsp; | &nbsp; <?= date('Y'); ?></p>
+                        <p>{!! $footerInfo->copy_right !!}</p>
+                        <p>{!! $footerInfo->powered_by !!}</p>
                     </div>
                 </div>
             </div>

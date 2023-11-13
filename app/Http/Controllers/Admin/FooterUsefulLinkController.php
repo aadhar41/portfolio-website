@@ -67,7 +67,7 @@ class FooterUsefulLinkController extends Controller
         $data->url = !empty($request->url) ? $request->url : '' ;
         $data->save();
         toastr()->success('Details updated successfully.','Success!');
-        return redirect()->back();
+        return redirect()->route('admin.footer-useful-link.index');
     }
 
     /**
@@ -78,6 +78,6 @@ class FooterUsefulLinkController extends Controller
         $data = FooterUsefulLink::findOrFail($id);
         $data->delete();
         toastr()->error('Details deleted successfully.','Success!');
-        return redirect()->back();
+        return redirect()->route('admin.footer-useful-link.index');
     }
 }
