@@ -344,6 +344,25 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Settings Section -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-cogs" aria-hidden="true"></i>
+                        <p>
+                            {{__('Settings')}}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.settings.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('General Settings')}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <br/><br/><br/><br/><br/>
                 {{-- 
                 <li class="nav-item">
