@@ -42,7 +42,7 @@ class HomeController extends Controller
         $skillSection = SkillSectionSetting::first();
         $skills = SkillItem::all();
         $experience = Experience::first();
-        $feedbacks = Feedback::first();
+        $feedbacks = Feedback::all();
         $feedbackSetting = FeedbackSectionSetting::first();
         $blogCategories = BlogCategory::all();
         $blogs = Blog::latest()->take(5)->get();

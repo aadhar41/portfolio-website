@@ -1,4 +1,4 @@
-<section class="service-area section-padding-top" id="about-page">
+<section class="service-area section-padding-top" id="service-page">
     <div class="container">
         <div class="row">
             @if ($services)
