@@ -74,19 +74,23 @@
                     </a>
                 </li>
                  --}}
-                 
+                 <li class="nav-header">DASHBOARD</li>
                  <!-- Dashboard -->
                  <li class="nav-item">
-                    <a href="{{route('dashboard')}}" class="nav-link">
+                    <a href="{{route('dashboard')}}" class="nav-link {{setSidebarActive(['dashboard'])}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             {{__('Dashboard')}}
                         </p>
                     </a>
                 </li>
+                <li class="nav-header">SECTIONS</li>
                  <!-- Hero Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive([
+                                                'admin.hero.*',
+                                                'admin.typer-title.*'
+                                                ])}}">
                         <i class="nav-icon fas fa-image"></i>
                         <p>
                             {{__('Hero Section')}}
@@ -96,13 +100,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.hero.create')}}" class="nav-link">
+                            <a href="{{route('admin.hero.create')}}" class="nav-link {{setSidebarActive(['admin.hero.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Content')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.typer-title.index')}}" class="nav-link">
+                            <a href="{{route('admin.typer-title.index')}}" class="nav-link {{setSidebarActive(['admin.typer-title.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Typer Title')}}</p>
                             </a>
@@ -149,7 +153,7 @@
                 </li>
                 <!-- Services Section -->
                 <li class="nav-item">
-                    <a href="{{route('admin.service.index')}}" class="nav-link">
+                    <a href="{{route('admin.service.index')}}" class="nav-link {{setSidebarActive(['admin.service.*'])}}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             {{__('Services Section')}}
@@ -158,7 +162,7 @@
                 </li>
                 <!-- About Section -->
                 <li class="nav-item">
-                    <a href="{{route('admin.about.index')}}" class="nav-link">
+                    <a href="{{route('admin.about.index')}}" class="nav-link {{setSidebarActive(['admin.about.*'])}}">
                         <i class="nav-icon fa fa-user-circle" aria-hidden="true"></i>
                         <p>
                             {{__('About Section')}}
@@ -167,7 +171,11 @@
                 </li>
                 <!-- PortFolio Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive([
+                                                    'admin.category.*',
+                                                    'admin.portfolio-item.*',
+                                                    'admin.portfolio-setting.*'
+                                                ])}}">
                         <i class="nav-icon fas fa-project-diagram"></i>
                         <p>
                             {{__('PortFolio')}}
@@ -177,19 +185,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.category.index')}}" class="nav-link">
+                            <a href="{{route('admin.category.index')}}" class="nav-link {{setSidebarActive(['admin.category.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Category')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.portfolio-item.index')}}" class="nav-link">
+                            <a href="{{route('admin.portfolio-item.index')}}" class="nav-link {{setSidebarActive(['admin.portfolio-item.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Portfolio Items')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.portfolio-setting.create')}}" class="nav-link">
+                            <a href="{{route('admin.portfolio-setting.create')}}" class="nav-link {{setSidebarActive(['admin.portfolio-setting.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Section Settings')}}</p>
                             </a>
@@ -198,9 +206,12 @@
                 </li>
                 <!-- Skills Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive([
+                                                        'admin.skill-item.*',
+                                                        'admin.skill-section-setting.*'
+                                                ])}}">
                         {{-- <i class="nav-icon fas fa-project-diagram"></i> --}}
-                        <i class="nav-icon fas fa-graduation-cap    "></i>
+                        <i class="nav-icon fas fa-graduation-cap"></i>
                         <p>
                             {{__('Skills')}}
                             <i class="fas fa-angle-left right"></i>
@@ -208,13 +219,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.skill-item.index')}}" class="nav-link">
+                            <a href="{{route('admin.skill-item.index')}}" class="nav-link {{setSidebarActive(['admin.skill-item.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Skill Items')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.skill-section-setting.create')}}" class="nav-link">
+                            <a href="{{route('admin.skill-section-setting.create')}}" class="nav-link {{setSidebarActive(['admin.skill-section-setting.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Section Settings')}}</p>
                             </a>
@@ -223,7 +234,7 @@
                 </li>
                 <!-- Experience Section -->
                 <li class="nav-item">
-                    <a href="{{route('admin.experience.create')}}" class="nav-link">
+                    <a href="{{route('admin.experience.create')}}" class="nav-link {{setSidebarActive(['admin.experience.*'])}}">
                         <i class="nav-icon fa fa-list-alt" aria-hidden="true"></i>
                         <p>
                             {{__('Experience')}}
@@ -232,7 +243,10 @@
                 </li>
                 <!-- Feedback Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive([
+                                        'admin.feedback.*',
+                                        'admin.feedback-setting.*'
+                                        ])}}">
                         <i class="nav-icon fa fa-comment" aria-hidden="true"></i>
                         <p>
                             {{__('Feedback')}}
@@ -241,13 +255,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.feedback.index')}}" class="nav-link">
+                            <a href="{{route('admin.feedback.index')}}" class="nav-link {{setSidebarActive(['admin.feedback.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Feedbacks')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.feedback-setting.create')}}" class="nav-link">
+                            <a href="{{route('admin.feedback-setting.create')}}" class="nav-link {{setSidebarActive(['admin.feedback-setting.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Section Settings')}}</p>
                             </a>
@@ -256,7 +270,10 @@
                 </li>
                 <!-- Blog Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive(['admin.blog-category.*',
+                                                'admin.blog.*',
+                                                'admin.blog-setting.*'
+                                                ])}}">
                         <i class="nav-icon fa fa-id-badge" aria-hidden="true"></i>
                         <p>
                             {{__('Blog')}}
@@ -265,19 +282,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.blog-category.index')}}" class="nav-link">
+                            <a href="{{route('admin.blog-category.index')}}" class="nav-link {{setSidebarActive(['admin.blog-category.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Category')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.blog.index')}}" class="nav-link">
+                            <a href="{{route('admin.blog.index')}}" class="nav-link {{setSidebarActive(['admin.blog.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Blog List')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.blog-setting.create')}}" class="nav-link">
+                            <a href="{{route('admin.blog-setting.create')}}" class="nav-link {{setSidebarActive(['admin.blog-setting.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Section Settings')}}</p>
                             </a>
@@ -286,7 +303,7 @@
                 </li>
                 <!-- Contact Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive(['admin.contact-section-setting.*'])}}">
                         <i class="nav-icon fa fa-id-card" aria-hidden="true"></i>
                         <p>
                             {{__('Contact')}}
@@ -295,7 +312,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.contact-section-setting.create')}}" class="nav-link">
+                            <a href="{{route('admin.contact-section-setting.create')}}" class="nav-link {{setSidebarActive(['admin.contact-section-setting.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Section Settings')}}</p>
                             </a>
@@ -304,7 +321,11 @@
                 </li>
                 <!-- Footer Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive(['admin.footer-social.*',
+                                                    'admin.footer-info.*',
+                                                    'admin.footer-contact-info.*',
+                                                    'admin.footer-useful-link.*',
+                                                    'admin.footer-help-link.*'])}}">
                         <i class="nav-icon fas fa-chalkboard"></i>
                         <p>
                             {{__('Footer')}}
@@ -313,40 +334,41 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.footer-social.index')}}" class="nav-link">
+                            <a href="{{route('admin.footer-social.index')}}" class="nav-link {{setSidebarActive(['admin.footer-social.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Social Links')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.footer-info.create')}}" class="nav-link">
+                            <a href="{{route('admin.footer-info.create')}}" class="nav-link {{setSidebarActive(['admin.footer-info.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Footer Information')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.footer-contact-info.create')}}" class="nav-link">
+                            <a href="{{route('admin.footer-contact-info.create')}}" class="nav-link {{setSidebarActive(['admin.footer-contact-info.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Footer Contact Info')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.footer-useful-link.index')}}" class="nav-link">
+                            <a href="{{route('admin.footer-useful-link.index')}}" class="nav-link {{setSidebarActive(['admin.footer-useful-link.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Footer Useful Info')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.footer-help-link.index')}}" class="nav-link">
+                            <a href="{{route('admin.footer-help-link.index')}}" class="nav-link {{setSidebarActive(['admin.footer-help-link.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('Footer Help Links')}}</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <li class="nav-header">SETTINGS</li>
                 <!-- Settings Section -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{setSidebarActive(['admin.settings.*'])}}">
                         <i class="nav-icon fa fa-cogs" aria-hidden="true"></i>
                         <p>
                             {{__('Settings')}}
@@ -355,7 +377,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.settings.index')}}" class="nav-link">
+                            <a href="{{route('admin.settings.index')}}" class="nav-link {{setSidebarActive(['admin.settings.*'])}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('General Settings')}}</p>
                             </a>
