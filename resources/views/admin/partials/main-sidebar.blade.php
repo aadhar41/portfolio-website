@@ -336,6 +336,12 @@
                                 <p>{{__('Footer Useful Info')}}</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.footer-help-link.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('Footer Help Links')}}</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <br/><br/><br/><br/><br/>
