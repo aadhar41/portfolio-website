@@ -23,7 +23,7 @@ class UpdateContactSectionSettingRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:250'],
-            'sub_title' => ['required', 'max:550'],
+            'sub_title' => ['required', 'max:5550'],
         ];
     }
 }

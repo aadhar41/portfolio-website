@@ -24,7 +24,7 @@ class UpdateFooterInfoRequest extends FormRequest
         return [
             'powered_by' => ['max:200'],
             'copy_right' => ['max:200'],
-            'info' => ['max:200'],
+            'info' => ['max:255'],
         ];
     }
 }

@@ -23,7 +23,7 @@ class UpdateSkillSectionSettingRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:200'],
-            'sub_title' => ['required', 'max:1000'],
+            'sub_title' => ['required', 'max:50000'],
             'image' => ['image', 'max:5000'],
         ];
     }
