@@ -24,8 +24,8 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name', $data->name)}}" />
+                                <label for="title">Title</label>
+                                <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{old('title', $data->title)}}" />
                             </div>
                             <div class="form-group">
                                 <label>Description</label>

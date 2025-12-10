@@ -34,8 +34,18 @@ class AboutController extends Controller
     public function store(StoreAboutRequest $request)
     {
         $about = new About();
-        $about->name = $request->name;
+        $about->title = $request->title;
         $about->description = $request->description;
+        // Handle optional image upload
+        $imagePath = handleUploads('image', null);
+        if ($imagePath) {
+            $about->image = $imagePath;
+        }
+        // Handle optional resume upload
+        $resumePath = handleUploads('resume', null);
+        if ($resumePath) {
+            $about->resume = $resumePath;
+        }
         $about->save();
 
         toastr()->success('About created successfully.','Success!');
@@ -73,18 +83,20 @@ class AboutController extends Controller
      */
     public function update(UpdateAboutRequest $request, $id)
     {
-        $data = About::first();
-        $imagePath = handleUploads('image', $data);
-        $resumePath = handleUploads('resume', $data);
-
-        About::updateOrCreate([
-            'id' => $id,
-        ], [
-            'title' => !empty($request->title) ? $request->title : "",
-            'description' => !empty($request->description) ? $request->description : "",
-            'image' => !empty($imagePath) ? $imagePath : $data->image,
-            'resume' => !empty($resumePath) ? $resumePath : $data->resume,
-        ]);
+        $about = About::findOrFail($id);
+        // Handle image upload; if a new file is uploaded, replace, otherwise keep existing
+        $imagePath = handleUploads('image', $about);
+        if ($imagePath) {
+            $about->image = $imagePath;
+        }
+        // Handle resume upload similarly
+        $resumePath = handleUploads('resume', $about);
+        if ($resumePath) {
+            $about->resume = $resumePath;
+        }
+        $about->title = $request->title ?? $about->title;
+        $about->description = $request->description ?? $about->description;
+        $about->save();
 
         toastr()->success('Details updated successfully.','Success!');
         return redirect()->back();

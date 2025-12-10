@@ -1,0 +1,1 @@
+<a href="{{ route('admin.about.edit', $id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

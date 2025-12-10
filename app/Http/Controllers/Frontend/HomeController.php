@@ -25,7 +25,7 @@ class HomeController extends Controller
         $about = About::first(['title', 'description', 'image', 'resume']);
         $portfolioSectionSettings = PortfolioSectionSetting::first(['title', 'sub_title']);
         $categories = Category::all();
-        $portfolioItems = PortfolioItem::all();
+        $portfolioItems = PortfolioItem::with('category')->get();
         return view('frontend.home', compact(
             'hero',
             'typerTitles',
@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function showPortfolio($id)
     {
-        $portfolioItems = PortfolioItem::findOrFail($id);
+        $portfolioItems = PortfolioItem::with('category')->findOrFail($id);
         return view('frontend.portfolio-details', compact('portfolioItems'));
     }
 

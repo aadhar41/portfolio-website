@@ -22,7 +22,7 @@ class AboutDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'about.action')
+            ->addColumn('action', 'admin.about.action')
             ->setRowId('id');
     }
 
