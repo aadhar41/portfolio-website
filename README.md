@@ -92,17 +92,27 @@ Follow these steps to set up the project locally:
 
 ## Application Screenshots
 
-### Home Page
+### Frontend
 
-![Home Page](public/uploads/screens/home-page.png)
+| Home Page | Portfolio Page | Blog Page |
+| --- | --- | --- |
+| ![Home Page](public/uploads/screens/home-page.png) | ![Portfolio Page](public/uploads/screens/portfolio-page.png) | ![Blog Page](public/uploads/screens/blog-page.png) |
 
-### Portfolio Page
+### Admin Dashboard
 
-![Portfolio Page](public/uploads/screens/portfolio-page.png)
+| Dashboard | Profile |
+| --- | --- |
+| ![Dashboard](public/uploads/screens/dashboard-2025-12-10-15_04_29.png) | ![Profile](public/uploads/screens/profile-2025-12-10-15_23_16.png) |
 
-### Blog Page
+### Admin Management
 
-![Blog Page](public/uploads/screens/blog-page.png)
+| Hero Section | About Section | Services |
+| --- | --- | --- |
+| ![Hero Create](public/uploads/screens/admin-hero-create-2025-12-10-15_04_51.png) | ![About Create](public/uploads/screens/admin-about-create-2025-12-10-15_06_22.png) | ![Service Create](public/uploads/screens/admin-service-create-2025-12-10-15_05_48.png) |
+
+| Category | Portfolio Item | Portfolio Settings |
+| --- | --- | --- |
+| ![Category Create](public/uploads/screens/admin-category-create-2025-12-10-15_06_49.png) | ![Portfolio Create](public/uploads/screens/admin-portfolio-item-create-2025-12-10-15_07_12.png) | ![Portfolio Settings](public/uploads/screens/admin-portfolio-setting-create-2025-12-10-15_07_37.png) |
 
 ## License
 
