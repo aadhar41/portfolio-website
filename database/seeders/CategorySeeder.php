@@ -12,6 +12,13 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $categories = ['Laravel', 'PHP', 'React', 'Vue', 'Full Stack'];
+
+        foreach ($categories as $category) {
+            \App\Models\Category::create([
+                'name' => $category,
+                'slug' => \Illuminate\Support\Str::slug($category),
+            ]);
+        }
     }
 }

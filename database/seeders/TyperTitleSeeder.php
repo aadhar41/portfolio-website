@@ -12,6 +12,10 @@ class TyperTitleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $titles = ['Full Stack Developer', 'Freelancer', 'Laravel Expert', 'Web Enthusiast'];
+
+        foreach ($titles as $title) {
+            \App\Models\TyperTitle::create(['title' => $title]);
+        }
     }
 }
