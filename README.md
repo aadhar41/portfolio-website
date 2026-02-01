@@ -116,4 +116,21 @@ Follow these steps to set up the project locally:
 
 ## License
 
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## Author
+
+**Aadhar Gaur**
+
+- **GitHub**: [@aadhar41](https://github.com/aadhar41)
+- **LinkedIn**: [aadhar-gaur-php](https://linkedin.com/in/aadhar-gaur-php)
+
+---
+
+## Acknowledgments
+
+- Built with ❤️ using [Laravel 10](https://laravel.com/) & [Tailwind CSS](https://tailwindcss.com/)
+- Secure authentication via [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze)
+- Data export powered by [Laravel Excel](https://docs.laravel-excel.com/)
